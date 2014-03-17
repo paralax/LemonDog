@@ -1,0 +1,11 @@
+@(feeds:List[String])
+
+@import helper._
+
+@main("Spritz") {
+    <ul>
+    @for(k <- feeds) {
+        <li><a href="/feed/@k">@k</a></li>
+    }
+    </ul>
+}

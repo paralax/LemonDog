@@ -1,0 +1,53 @@
+@(name: String, items:List[Item])
+
+@import helper._
+
+@main("foo") {
+    <div class="container">
+      <div class="pagination-centered">
+        <!-- <h1 class="text-center"><div class="pagination-centered" id="notcontent">Start.</div></h1> -->
+    
+        <div class="row" style="height: 100%; vertical-align: middle">
+          <div class="col-md-6">&nbsp; </div>
+          <div class="col-md-6 offset3" id="content"><h1>Start<h1></div>
+        </div>
+      </div>
+    </div>    
+
+    
+    <script>
+    function sleep(millis) {
+        var now = new Date().getTime();
+        while(new Date().getTime() < now + millis) { /* do nothing */ } 
+    }
+    
+    function endsWith(str, suffix) {
+        return str.indexOf(suffix, str.length - suffix.length) !== -1;
+    }
+
+    var jsitems = [];
+    @for(i <- items) {
+        jsitems.push(" @(i.body) "); }
+    // join feeds by a -- to indicate a new topic
+    var words = jsitems.join(" -- -- ").split(' ');    
+    var imax = words.length-1;
+    var i = 0;
+
+    function start() {
+        document.getElementById('content').innerHTML="<h1>" +  words[i] + "</h1>";
+        extra=0;
+        /*
+        if endsWith(words[i], '.') {
+            extra=500;
+        }
+        */
+        if (i <= imax) {
+            t=setTimeout(function(){start()},100);
+            i += 1;
+        }
+    }
+     
+    </script>
+
+    <body onload="start()">
+}
