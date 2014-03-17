@@ -47,7 +47,6 @@ object Application extends Controller {
       println("loading sources")
       val urls = List("http://news.google.com/news?pz=1&cf=all&ned=us&hl=en&output=rss",
                       "http://hosted2.ap.org/atom/APDEFAULT/3d281c11a96b4ad082fe88aa0db04305",
-                      "http://rss.upi.com/news/news.rss",
                       "http://feeds.reuters.com/Reuters/worldNews",
                       "http://rss.nytimes.com/services/xml/rss/nyt/InternationalHome.xml")
       var items = List[Item]()
