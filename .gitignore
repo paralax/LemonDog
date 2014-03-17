@@ -1,50 +1,42 @@
-logs
-project/project
-project/target
-target
-tmp
-.history
-dist
-/.idea
-/*.iml
-/out
-/.idea_modules
-/.classpath
-/.project
-/RUNNING_PID
-/.settings
+
 # Ignore Play! working directory #
+# Scala-IDE specific
+# emacs
+# sbt specific
+*.class
+*.eml
+*.iml
+*.log
+*~
+.cache
+.history
+.scala_dependencies
+/*.iml
+/.classpath
+/.idea
+/.idea_modules
+/.project
+/.settings
+/RUNNING_PID
+/out
 bin
 db
+dist
+dist/*
 eclipse
 lib
+lib_managed/
 log
 logs
 modules
 precompiled
-project/project
-project/target
-target
-tmp
-test-result
-server.pid
-*.iml
-*.eml
-dist
-.cache
-
-# emacs
-*~
-*.class
-*.log
-
-# sbt specific
-dist/*
-target/
-lib_managed/
-src_managed/
 project/boot/
 project/plugins/project/
-
-# Scala-IDE specific
-.scala_dependencies
+project/project
+project/target
+server.pid
+src_managed/
+target
+target/
+test-result
+tmp
