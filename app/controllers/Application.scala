@@ -1,5 +1,6 @@
 package controllers
 
+import java.util.Date
 import scala.io.Source
 import scala.xml
 
@@ -44,6 +45,7 @@ object Application extends Controller {
   }
   
   def feed(name:String) = Action {
+      var now = new Date
       println("loading sources")
       val urls = List("http://news.google.com/news?pz=1&cf=all&ned=us&hl=en&output=rss",
                       "http://hosted2.ap.org/atom/APDEFAULT/3d281c11a96b4ad082fe88aa0db04305",
@@ -51,7 +53,8 @@ object Application extends Controller {
                       "http://rss.nytimes.com/services/xml/rss/nyt/InternationalHome.xml")
       var items = List[Item]()
       for ( url <- urls ) {
-          println(url)
+          now = new Date
+          println(now.toString + "  " + url)
           val rss = Source.fromURL(url)
           val root = xml.XML.loadString(rss.mkString)
           items = (root \\ "item").map(buildItem(_)).toList ::: items
